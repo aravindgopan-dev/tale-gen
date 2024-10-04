@@ -37,7 +37,7 @@ function Story() {
     const fetchStory = async () => {
       try {
         const response = await axios.get(`/api/v1/stories/${storyId}/pages`);
-        console.log(data)
+        console.log(response.data)
         setData(response.data);
       } catch (err) {
         setError(err.message);
@@ -73,20 +73,20 @@ function Story() {
         <HTMLFlipBook
           ref={book}
           width={300}
-          height={window.innerHeight * 0.8}
+          height={window.innerHeight * 0.9}
           showCover={true}
           className="mt-2"
           drawShadow={true}
           useMouseEvents={false}
         >
-          <div className='demoPage bg-gray-400 rounded-xl'>
-            <h1 className='text-black  pl-16 text-5xl pt-[100px]  absolute'>Story book</h1>
-            <img className='w-100 h-full' src="https://www.shutterstock.com/image-photo/old-paper-texture-background-vintage-260nw-1705115920.jpg" alt="" />
+          <div className='demoPage bg-gradient-to-b from-primary to-secondary  rounded-xl'>
+            {/*<h1 className='text-black  pl-16 text-5xl pt-[100px]  absolute'>Story book</h1>
+            <img className='w-100 h-full' src="https://www.shutterstock.com/image-photo/old-paper-texture-background-vintage-260nw-1705115920.jpg" alt="" />*/}
 
           </div>
 
           {data.map((item, index) => (
-            <div key={index} className="demoPage p-4 bg-slate-300 rounded-md">
+            <div key={index} className="demoPage p-4 bg-slate-300  rounded-md">
               <img
                 src={item.imgUrl}
                 alt={`Page ${item.pageNumber}`}
@@ -95,13 +95,16 @@ function Story() {
               <span>
                 <button onClick={() => handleSpeak(item.caption)}><FaPlay /></button>
               </span>
+              <div className='overflow-scroll h-[200px]'>
               <p className="mt-4 text-center bg-slate w-full overflow-scroll">{item.caption}</p>
               <p className="mt-2 text-center text-sm font-semibold">Page {item.pageNumber}</p>
+              </div>
+              
             </div>
           ))}
-          <div className='demoPage bg-gray-400 rounded-xl'>
-            
-            <img className='w-100 h-full' src="https://www.shutterstock.com/image-photo/old-paper-texture-background-vintage-260nw-1705115920.jpg" alt="" />
+          <div className='demoPage bg-gradient-to-b from-primary to-secondary  rounded-xl'>
+            {/*<h1 className='text-black  pl-16 text-5xl pt-[100px]  absolute'>Story book</h1>
+            <img className='w-100 h-full' src="https://www.shutterstock.com/image-photo/old-paper-texture-background-vintage-260nw-1705115920.jpg" alt="" />*/}
 
           </div>
         </HTMLFlipBook>

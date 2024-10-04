@@ -18,7 +18,7 @@ function Create() {
     ageGroup: "",
     illustrationType: "",
     gender: "",
-    pages: 3, // Default number of pages
+    pages: 4, // Default number of pages
   });
   const [loading, setLoading] = useState(false);
   const [stodyId, setStodyId] = useState(null); // State to hold stodyId
@@ -196,7 +196,7 @@ function Create() {
             </label>
             <input
               type="range"
-              min="1"
+              min="4"
               max="10"
               name="pages"
               value={formData.pages}
