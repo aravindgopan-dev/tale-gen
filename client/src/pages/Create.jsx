@@ -18,6 +18,7 @@ function Create() {
     ageGroup: "",
     illustrationType: "",
     gender: "",
+    pages: 4, // Default number of pages
   });
   const [loading, setLoading] = useState(false);
   const [stodyId, setStodyId] = useState(null); // State to hold stodyId
@@ -28,6 +29,7 @@ function Create() {
       ...formData,
       [name]: value,
     });
+    console.log(formData)
   };
 
   function randomStoriesTitle() {
@@ -51,6 +53,7 @@ function Create() {
       moral: formData.moral,
       language: formData.language,
       gender: formData.gender,
+      pages: formData.pages, // Include number of pages in the API data
     };
 
     try {
@@ -186,6 +189,20 @@ function Create() {
                 </label>
               ))}
             </div>
+          </div>
+          <div className="space-y-2">
+            <label className="label text-primary font-semibold">
+              <span className="label-text">Number of Pages: {formData.pages}</span>
+            </label>
+            <input
+              type="range"
+              min="4"
+              max="10"
+              name="pages"
+              value={formData.pages}
+              onChange={handleInputChange}
+              className="range range-primary bg-secondary"
+            />
           </div>
 
           {/* Submit Button */}
