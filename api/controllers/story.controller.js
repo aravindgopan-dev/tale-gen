@@ -60,6 +60,19 @@ const createStory = async (req, res) => {
   }
 };
 
+const getStoryDetails = async (req, res) => {
+  const { storyId } = req.params;
+  try {
+    const story = await Story.findById(storyId);
+    if (!story) {
+      throw new BadRequestError("No story found");
+    }
+    res.json(story);
+  } catch (err) {
+    res.status(500).send({ message: "Error fetching story details" });
+  }
+};
+
 const getPagesOfStory = async (req, res) => {
   const { params } = req;
   if (!params.storyId) {
@@ -110,4 +123,5 @@ module.exports = {
   createStory,
   getPagesOfStory,
   deleteStory,
+  getStoryDetails,
 };

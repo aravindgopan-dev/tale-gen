@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   createStory,
   getAllStories,
+  getStoryDetails,
   getPagesOfStory,
   deleteStory,
 } = require("../controllers/story.controller");
@@ -12,6 +13,7 @@ const generateImagesMiddleware = require("../services/replicate.service");
 router
   .post("/", geminiMiddleware, generateImagesMiddleware, createStory)
   .get("/", getAllStories)
+  .get("/:storyId", getStoryDetails)
   .get("/:storyId/pages", getPagesOfStory)
   .delete("/:storyId", deleteStory);
 
