@@ -37,13 +37,13 @@ TaleGen is a web application that helps generate bedtime stories for children. U
 
 - Node.js
 ### API 
-CREATE STORY    POST -/api/v1/stories/
-ALL STORY       GET -/api/v1/stories/
-STORY PAGES     GET -/api/v1/:id/pages
-STORY DETAILS   GET -/api/v1/:id
-DELETE STORY    DEL -/api/v1/:id
-CREATE USER     POST-/api/v1/user/register
-LOGIN USER      POST-/api/v1/user/login
+- CREATE STORY    POST -/api/v1/stories/
+- ALL STORY       GET -/api/v1/stories/
+- STORY PAGES     GET -/api/v1/:id/pages
+- STORY DETAILS   GET -/api/v1/:id
+- DELETE STORY    DEL -/api/v1/:id
+- CREATE USER     POST-/api/v1/user/register
+- LOGIN USER      POST-/api/v1/user/login
 ## Usage
 
 1. Input a small description of the story you want to generate.
