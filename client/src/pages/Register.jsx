@@ -50,9 +50,9 @@ function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-300 to-purple-300">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
-        <h2 className="text-2xl font-bold text-center mb-6 text-purple-700">Register</h2>
+    <div className="flex items-center justify-center min-h-screen bg-blue-800">
+      <div className="bg-yellow-300 shadow-lg rounded-lg p-8 max-w-sm w-full">
+        <h2 className="text-2xl font-bold text-center mb-6 text-blue-500">Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Username</label>
@@ -62,7 +62,7 @@ function Register() {
               value={formData.username}
               onChange={handleChange}
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-purple-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-800"
               placeholder="Enter your username"
             />
           </div>
@@ -74,7 +74,7 @@ function Register() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-purple-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-800"
               placeholder="you@example.com"
             />
           </div>
@@ -87,14 +87,14 @@ function Register() {
               onChange={handleChange}
               required
               minLength={8} // Add minLength for validation
-              className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-purple-500"
+              className="mt-1 block w-full border border-gray-300  rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-800"
               placeholder="Enter your password"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 rounded transition duration-200"
+            className="w-full text-white font-bold py-2 rounded bg-blue-700"
           >
             {loading ? 'Registering...' : 'Register'}
           </button>

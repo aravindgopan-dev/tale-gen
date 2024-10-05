@@ -10,14 +10,14 @@ function Dashboard() {
       <div className="p-4">
         <div className="flex justify-end mb-4">
           <Link to="/create">
-            <button className="bg-purple-600 text-white font-bold py-2 px-4 rounded hover:bg-purple-700 transition duration-200">
+            <button className="bg-yellow-300 text-blue-600 font-bold py-2 px-4 rounded hover:bg-purple-700 transition duration-200">
               Create Story
             </button>
           </Link>
 
         </div>
         <div>
-          <h2 className="text-purple-800 font-bold text-xl mb-4">Previous Stories</h2>
+          <h2 className="text-blue-900 font-extrabold  text-xl mb-4">Previous Stories</h2>
           <div className="flex flex-wrap justify-start gap-5">
             <Bookcard />
             <Bookcard />

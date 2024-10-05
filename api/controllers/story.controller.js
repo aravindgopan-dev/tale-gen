@@ -64,6 +64,7 @@ const getStoryDetails = async (req, res) => {
   const { storyId } = req.params;
   try {
     const story = await Story.findById(storyId);
+    console.log(story)
     if (!story) {
       throw new BadRequestError("No story found");
     }

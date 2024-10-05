@@ -2,26 +2,23 @@ import React from 'react';
 import { CgProfile } from "react-icons/cg";
 import { Link } from 'react-router-dom';
 
-
 function Navbar() {
- 
+
   return (
-    <div className="navbar bg-primary">
+    <div className="navbar bg-blue-700">
       <div className="flex-1">
-        <Link 
+        <Link
           to="/dashboard"
-          className="btn btn-ghost text-3xl font-bold text-purple-900 hover:text-purple-700 transition duration-200"
+          className="btn btn-ghost text-3xl font-bold  text-white"
         >
-          TaleMaker
+        Tale<span className='text-yellow-300'>GEN</span>
         </Link>
       </div>
-      <div>
-        
-      </div>
+      <div></div>
       <div className="flex-none gap-2">
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost">
-            <div className="w-10 h-10  flex items-center justify-center">
+            <div className="w-10 h-10 flex items-center justify-center">
               <CgProfile className="text-secondary w-6 h-6" />
             </div>
           </div>

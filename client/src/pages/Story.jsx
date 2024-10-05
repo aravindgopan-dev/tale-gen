@@ -13,6 +13,7 @@ function Story() {
   const book = useRef();
   const [pdfGenerated, setPdfGenerated] = useState(false);
   const [data, setData] = useState(null);
+  const [title,setTitle]=useState(null)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -36,8 +37,10 @@ function Story() {
   useEffect(() => {
     const fetchStory = async () => {
       try {
+        const rtitle = await axios.get(`/api/v1/stories/${storyId}`);
         const response = await axios.get(`/api/v1/stories/${storyId}/pages`);
-        console.log(response.data)
+        setTitle(rtitle.data)
+        console.log(rtitle.data)
         setData(response.data);
       } catch (err) {
         setError(err.message);
@@ -80,9 +83,11 @@ function Story() {
           useMouseEvents={false}
         >
           <div className='demoPage bg-gradient-to-b from-primary to-secondary  rounded-xl'>
-            {/*<h1 className='text-black  pl-16 text-5xl pt-[100px]  absolute'>Story book</h1>
-            <img className='w-100 h-full' src="https://www.shutterstock.com/image-photo/old-paper-texture-background-vintage-260nw-1705115920.jpg" alt="" />*/}
-
+           
+            <div className=''>
+              <h1> </h1>
+              <img  className ="px-10 py-30 py-20"src={title.coverUrl} alt="" />
+            </div>
           </div>
 
           {data.map((item, index) => (
