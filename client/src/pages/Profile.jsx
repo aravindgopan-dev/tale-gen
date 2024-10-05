@@ -1,6 +1,11 @@
 import React from 'react';
-
+import { useSelector ,useDispatch } from 'react-redux';
+import { loginSuccess } from '../feature/userSlice';
 function Profile() {
+    
+    const dispatch=useDispatch()
+    const name=useSelector((state)=>state.user.user)
+    console.log(name)
     return (
         <div className="min-h-screen bg-gradient-to-b from-pink-200 via-pink-300 to-purple-400 flex items-center justify-center">
             <div className="max-w-5xl mx-auto py-12 px-6 bg-white rounded-lg shadow-lg">

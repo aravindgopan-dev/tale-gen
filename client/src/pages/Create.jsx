@@ -218,7 +218,7 @@ function Create() {
 
             {/* Submit Button */}
             <button
-              className={`btn w-full bg-primary text-white hover:bg-secondary`}
+              className={`btn w-full bg-blue-800 text-white hover:bg-secondary`}
               type="submit"
               disabled={loading}
             >

@@ -1,17 +1,26 @@
 import React from 'react';
 import { CgProfile } from "react-icons/cg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Added useNavigate
+import { useDispatch } from 'react-redux';
+import { logout } from '../feature/userSlice';
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleLogout = () => {
+    dispatch(logout()); // Call dispatch with logout action
+    navigate('/login'); // Navigate to the login page after logout
+  };
 
   return (
     <div className="navbar bg-blue-700">
       <div className="flex-1">
         <Link
           to="/dashboard"
-          className="btn btn-ghost text-3xl font-bold  text-white"
+          className="btn btn-ghost text-3xl font-bold text-white"
         >
-        Tale<span className='text-yellow-300'>GEN</span>
+          Tale<span className='text-yellow-300'>GEN</span>
         </Link>
       </div>
       <div></div>
@@ -27,13 +36,15 @@ function Navbar() {
             className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="justify-between text-purple-800 hover:bg-purple-100">
+              <Link to="/profile" className="justify-between text-purple-800 hover:bg-purple-100">
                 Profile
                 <span className="badge">New</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="text-purple-800 hover:bg-purple-100">Logout</a>
+              <button className="text-purple-800 hover:bg-purple-100" onClick={handleLogout}>
+                Logout
+              </button>
             </li>
           </ul>
         </div>

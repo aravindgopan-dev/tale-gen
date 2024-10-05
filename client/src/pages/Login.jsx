@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
-
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../feature/userSlice';
 
 
 function Login() {
+  const dispatch=useDispatch()
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -38,7 +40,9 @@ function Login() {
       );
 
       if (response.status === 200) { // Check if response is successful
-        
+        const name=response.data.user.username
+        console.log(name)
+        dispatch(loginSuccess(name))
         navigate('/dashboard'); // Navigate to dashboard or any other page after successful login
       } else {
         setError('Login failed. Please check your credentials.');
