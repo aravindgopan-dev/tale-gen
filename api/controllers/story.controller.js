@@ -67,6 +67,7 @@ const getStoryDetails = async (req, res) => {
     if (!story) {
       throw new BadRequestError("No story found");
     }
+    console.log("works", story);
     res.json(story);
   } catch (err) {
     res.status(500).send({ message: "Error fetching story details" });
