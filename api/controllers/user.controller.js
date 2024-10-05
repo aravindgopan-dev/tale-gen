@@ -43,4 +43,8 @@ const login = async (req, res) => {
   });
 };
 
+const logout = async (req, res) => {
+  res.clearCookie("Authorization");
+};
+
 module.exports = { register, login };
